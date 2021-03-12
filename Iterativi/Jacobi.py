@@ -42,7 +42,7 @@ for i in range(ITERATION_LIMIT):
 print(Solution, i)
 t2 = time.perf_counter()
 
-print(f'Finisched in {round(t2-t1, 5)} seconds')
+print(f'Finisched in {round(t2-t1, 5)} seconds ')
 
 x1 = [i for i in np.arange(0, 10, 0.1)]
 y = []
