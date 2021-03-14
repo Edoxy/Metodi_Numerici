@@ -3,9 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # max iteration of the algorithm
-ITERATION_LIMIT = 500
+ITERATION_LIMIT = 100000
 #tollerance: il the approssimation of the current iteration changes by less than the toll, stops the loop
-TOLL = 0.000000001
+TOLL = 0.0001
 # coefficients matrix
 #A = np.array(np.mat('10. -1. +2. +0.0; -1. +11. -1. +3.; +2. -1. +10. -1.; +0.0 +3. -1. +8.'))
 # vector of know terms 

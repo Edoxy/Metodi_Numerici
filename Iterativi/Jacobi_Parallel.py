@@ -6,9 +6,9 @@ from sparce_matrix import sprandsym
 
 
 # max iteration of the algorithm
-ITERATION_LIMIT = 500
+ITERATION_LIMIT = 1000
 # tollerance: il the approssimation of the current iteration changes by less than the toll, stops the loop
-TOLL = 0.000000001
+TOLL = 0.0001
 # coefficients matrix
 A = np.array([[4, -1, 0, -1, 0, 0],
             [-1, 4, -1, 0, -1, 0],
