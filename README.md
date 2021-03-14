@@ -4,3 +4,5 @@ Insieme di Script Python che raccoglie moltissimi dei metodi trattati a lezione 
 To run scripts install in your virtual env:
 Numpy
 Matplotlib
+Numba
+Scipy
