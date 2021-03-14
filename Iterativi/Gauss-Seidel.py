@@ -5,7 +5,7 @@ t1 = time.perf_counter()
 # max iteration of the algorithm
 ITERATION_LIMIT = 10000
 #Dont know how to implemet tollerance
-TOLL = 0.0001
+TOLL = 0.000000001
 DIM = 6
 # coefficients matrix
 #A = np.array(np.mat('10. -1. +2. +0.0; -1. +11. -1. +3.; +2. -1. +10. -1.; +0.0 +3. -1. +8.'))

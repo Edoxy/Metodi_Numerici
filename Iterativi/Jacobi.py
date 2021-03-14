@@ -6,7 +6,7 @@ t1 = time.perf_counter()
 # max iteration of the algorithm
 ITERATION_LIMIT = 500
 #tollerance: il the approssimation of the current iteration changes by less than the toll, stops the loop
-TOLL = 0.0001
+TOLL = 0.000000001
 # coefficients matrix
 #A = np.array(np.mat('10. -1. +2. +0.0; -1. +11. -1. +3.; +2. -1. +10. -1.; +0.0 +3. -1. +8.'))
 # vector of know terms 
@@ -50,15 +50,4 @@ print(Solution, i)
 t2 = time.perf_counter()
 
 print(f'Finisched in {round(t2-t1, 5)} seconds ')
-
-x1 = [i for i in np.arange(0, 10, 0.1)]
-y = []
-for i in x1:
-    partial = 0
-    n = 0
-    for j in Solution:
-        partial += j * i**n
-        n += 1
-    
-    y.append(partial)
 
