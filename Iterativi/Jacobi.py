@@ -1,7 +1,6 @@
 import time
 import numpy as np
 import matplotlib.pyplot as plt
-t1 = time.perf_counter()
 
 # max iteration of the algorithm
 ITERATION_LIMIT = 500
@@ -26,10 +25,9 @@ A = np.array([[4, -1, 0, -1, 0, 0],
             [0, 0, -1, 0, -1, 4]], float)
 B = np.array([2, 1, 2, 2, 1, 2], float)
 
+t1 = time.perf_counter()
 # vector of the solution approssimation
 Solution = np.zeros(N, float)
-i=0
-j=0
 # does max number of iteration
 for i in range(ITERATION_LIMIT):
     x_temp = Solution.copy()

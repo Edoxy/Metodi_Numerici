@@ -24,26 +24,17 @@ B = np.array([2, 1, 2, 2, 1, 2], float)
 DIM = 6
 
 
-@jit(nopython=True , parallel = True)
-def func(x_temp):
-    results = np.zeros(DIM)
-    for j in range(DIM):
-        sum = 0
-        for z in range(DIM):
-            if z != j:
-                sum += A[j, z] * x_temp[z]
-        results[j] = (B[j] - sum) / A[j, j]
-    
-    return results
-
 @jit(nopython=True, parallel=True)
 def Jacobi(Solution, IM):
     for i in range(IM):
         x_temp = Solution.copy()
         
-        results = func(x_temp)
-
-        Solution = results.copy()
+        for j in range(DIM):
+            sum = 0
+            for z in range(DIM):
+                if z != j:
+                    sum += A[j, z] * x_temp[z]
+            Solution[j] = (B[j] - sum) / A[j, j]
         #print(Solution)
 
         err = np.abs(np.max(np.subtract(Solution, x_temp)))
@@ -52,8 +43,7 @@ def Jacobi(Solution, IM):
     
     return (Solution, i)
 
-#FIRST COMPILATION OF THE FUNCTIONs
-_ = func(np.zeros_like(B)) 
+#FIRST COMPILATION OF THE FUNCTION
 _ = Jacobi(np.zeros_like(B), 0)
 
 start = time.perf_counter()

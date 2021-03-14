@@ -1,6 +1,6 @@
 import numpy as np
 
-N = 2
+N = 10
 Points = np.random.rand(N)
 x = range(N)
 
