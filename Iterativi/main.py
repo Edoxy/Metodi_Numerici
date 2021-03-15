@@ -1,4 +1,4 @@
-from J_P import Jacobi_Parallel
+from Jacobi_Parallel import Jacobi_Parallel
 from Gauss_Seidel import Gauss_Seidel
 from Jacobi import Jacobi
 from magic import magic

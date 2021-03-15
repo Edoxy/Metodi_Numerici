@@ -1,32 +1,16 @@
+from numba import jit
 import time
 import numpy as np
-import numpy.matlib
-from numba import jit
-from sparce_matrix import sprandsym
 
-
-# max iteration of the algorithm
-ITERATION_LIMIT = 1000
-# tollerance: il the approssimation of the current iteration changes by less than the toll, stops the loop
-TOLL = 0.0001
-# coefficients matrix
-A = np.array([[4, -1, 0, -1, 0, 0],
-            [-1, 4, -1, 0, -1, 0],
-            [0, -1, 4, 0, 0, -1],
-            [-1, 0, 0, 4, -1, 0],
-            [0, -1, 0, -1, 4, -1],
-            [0, 0, -1, 0, -1, 4]], float)
-
-
-
-# vector of know terms
-B = np.array([2, 1, 2, 2, 1, 2], float)
-DIM = 6
-
+MAX_IT = 1000
 
 @jit(nopython=True, parallel=True)
-def Jacobi(Solution, IM):
-    for i in range(IM):
+def Jacobi_Parallel(A, B, TOLL, MAX_IT = MAX_IT):
+    #A matrix, B Const, Tollerance, use = true
+    Solution = np.zeros_like(B)
+    DIM = A.shape[0]
+
+    for i in range(MAX_IT):
         x_temp = Solution.copy()
         
         for j in range(DIM):
@@ -42,17 +26,3 @@ def Jacobi(Solution, IM):
             break
     
     return (Solution, i)
-
-#FIRST COMPILATION OF THE FUNCTION
-_ = Jacobi(np.zeros_like(B), 0)
-
-start = time.perf_counter()
-
-# vector of the solution approssimation
-Solution = np.zeros_like(B)
-
-print(Jacobi(Solution, ITERATION_LIMIT))
-
-finish = time.perf_counter()
-
-print(f'Finished in {round(finish-start, 5)} second(s)')
