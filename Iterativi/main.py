@@ -16,9 +16,9 @@ import time
 
 # # vector of know terms
 # B = np.array([2, 1, 2, 2, 1, 2], float)
-A = magic(20)
+A = magic(5)
 A = np.dot(np.transpose(A), A)
-x = np.ones(20)
+x = np.ones(5)
 B = np.dot(A, np.transpose(x))
 
 TOLL = 1.0e-5
