@@ -1,13 +1,8 @@
 import numpy as np
 
-dim = 4
-DECIMAL = 2
+def Gauss(M):
+    dim = M.shape[0]
 
-# M = [[1.0, 22.0, 3.0, 7.0], [2.0, 3.0, 4.0, 45.0], [3.0, 4.0, 6.0, 5.0], [63.0, 5.3, 4.0, 7.0]]
-M = np.random.rand(dim, dim)
-print(M)
-
-def Gauss(M, dim):
     # Ciclo per ogni riga della matrice
     for i in range (0, dim -1):
         #reset dell'elemento pivot
@@ -36,8 +31,12 @@ def Gauss(M, dim):
             
             #update avery element of the line
             for z in range(i, dim):
-                M[j, z] =  round((M[j, z] * pivot[0] / factor) - M[i, z], DECIMAL)
+                M[j, z] =  round((M[j, z] * pivot[0] / factor) - M[i, z], 3)
 
     return M
 
-print(Gauss(M, dim))
+if __name__ == '__main__':
+    # Test della funzione; eseguito solamente se il eseguita da questo file python
+
+    M = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 10]], float)
+    print(Gauss(M))
