@@ -16,11 +16,12 @@ from Fattorizzazioni.Gauss import Gauss
 #             [0, 0, -1, 0, -1, 4]], float)
 # # vector of know terms
 # B = np.array([2, 1, 2, 2, 1, 2], float)
+CONST = 7
 
-A = magic(5)
+A = magic(CONST)
 A = np.dot(np.transpose(A), A)
 A = Gauss(A)
-x = np.ones(5)
+x = np.ones(CONST)
 B = np.dot(A, np.transpose(x))
 
 TOLL = 1.0e-5

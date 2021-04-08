@@ -1,6 +1,5 @@
 import time
 import numpy as np
-import matplotlib.pyplot as plt
 
 # max iteration of the algorithm
 ITERATION_LIMIT = 100000
