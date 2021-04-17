@@ -8,7 +8,7 @@ def horner(coef, value):
     for i in range(len(coef)):
         result = result * value + coef[i]
     t2 = time.perf_counter()
-    print('Horner execution time : ', t2-t1)
+    print('Horner execution time : ', round(t2-t1, 5))
     return result
 
 def normal(coef, value):
@@ -17,7 +17,7 @@ def normal(coef, value):
     for i in range(len(coef)):
         result = result + coef[i] * (value**i)
         t2 = time.perf_counter()
-    print('Normal execution time : ', t2-t1)
+    print('Normal execution time : ', round(t2-t1, 5))
     return result
 
 if __name__ == '__main__':
